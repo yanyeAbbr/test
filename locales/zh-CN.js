@@ -3,7 +3,6 @@ $CONFIG.text_language["zh-CN"] = {
     "NAV-GAME": "游戏",
 };
 
-
 $CONFIG.support_template_language["zh-CN"] = "cn";
 
 $CONFIG.support_template_locales["cn"] = {
