@@ -10,7 +10,7 @@ app.use(session({
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: false,
-    cookie: { maxAge: 1000*60*60*24*1 }
+    cookie: { maxAge: 1000*60*60*24*7 }
 }));
 app.use(express.static('public'));
 app.use(express.static('views',{maxAge: '7 days'}));
