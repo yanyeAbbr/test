@@ -7,9 +7,6 @@ exports.index = function (req, res, next) {
     * views 局部变量 添加自定义的方法
     * */
 
-
-
-
     res.locals.$_$ = {
         req_url: req.url,//请求url
     };
