@@ -11,14 +11,426 @@
         *{
             outline: 0;
         }
+       .y-card-yl .card-content{
+           margin-bottom: 0;
+           height: 160px;
+       }
+       .container .row .y-item-wrap{
+            max-height: 440px;
+           padding: 0;
+           background-color: white;
+        }
+        .index-tab{
+            background: #fbfbfb;
+            border-bottom: 1px solid #e8e8e8;
+            height: 55px;
+            line-height: 55px;
+            color: #666;
+            font-size: 18px;
+            padding: 0px 10px;
+            font-weight: 400;
+            position: relative;
+        }
+        .index-tab > a {
+            color: #666;
+        }
+        .y-item-wrap dl{
+            display: block;
+            position: relative;
+            height: 85px;
+            padding-top: 10px;
+            overflow: hidden;
+        }
+        .y-item-wrap dl dt{
+            float: left;
+            width: 95px;
+            height: 75px;
+            text-align: center;
+        }
+        .y-item-wrap dl .title-dd{
+            padding-right: 10px;
+            padding-top: 5px;
+        }
+        .y-item-wrap dl dd{
+            color: #666;
+            overflow: hidden;
+            line-height: 22px;
+            font-size: 13px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+
     </style>
 </head>
-<body>
+<body style="background-color: #f2f5f9">
 <%- include inc/header_nav.ejs%>
+
+<div class="main" style="margin-top: 40px">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m8" >
+                <div class="slider">
+                    <ul class="slides">
+                        <li>
+                            <img src="/imgs/fj_image1.jpg"> <!-- random image -->
+                            <div class="caption center-align">
+                                <h3>This is our big Tagline!</h3>
+                                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="/imgs/fj_image2.jpg"> <!-- random image -->
+                            <div class="caption left-align">
+                                <h3>Left Aligned Caption</h3>
+                                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="/imgs/fj_image3.jpg"> <!-- random image -->
+                            <div class="caption right-align">
+                                <h3>Right Aligned Caption</h3>
+                                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="/imgs/fj_image4.jpg"> <!-- random image -->
+                            <div class="caption center-align">
+                                <h3>This is our big Tagline!</h3>
+                                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col m4 hide-on-small-only">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="card blue-grey darken-1">
+                            <div class="card-content white-text">
+                                <span class="card-title">Card Title</span>
+                                <p>I am a very simple card. I am good at containing small bits of information.
+                                    I am convenient because I require little markup to use effectively.</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="#">This is a link</a>
+                                <a href="#">This is a link</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 y-card-yl">
+                        <div class="card blue-grey darken-1">
+                            <div class="card-content white-text">
+                                <span class="card-title">Card Title</span>
+                                <p>I am a very simple card. I am good at containing small bits of information.
+                                    I am convenient because I require little markup to use effectively.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m8 y-item-wrap">
+                <div class="index-tab">
+                    <a href="javascript:void(0)"><%- $GET('NOTES')%></a>
+                </div>
+                <div class="col s4">
+                    <dl>
+                        <dt>
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en"><img alt="格来云游戏 APK" data-original="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" src="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" style="display: inline;"></a>
+                        </dt>
+                        <dd class="title-dd">
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en">格来云游戏</a></dd>
+                        <dd>
+                            <div class="stars"><span class="score" title="格来云游戏 评级 8.4" style="width:84.00000000000001%"></span><span class="star">8.4</span></div>
+                        </dd>
+                        <dd>2018年06月22日</dd>
+                    </dl>
+                </div>
+                <div class="col s4">
+                    <dl>
+                        <dt>
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en"><img alt="格来云游戏 APK" data-original="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" src="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" style="display: inline;"></a>
+                        </dt>
+                        <dd class="title-dd">
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en">格来云游戏</a></dd>
+                        <dd>
+                            <div class="stars"><span class="score" title="格来云游戏 评级 8.4" style="width:84.00000000000001%"></span><span class="star">8.4</span></div>
+                        </dd>
+                        <dd>2018年06月22日</dd>
+                    </dl>
+                </div>
+                <div class="col s4">
+                    <dl>
+                        <dt>
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en"><img alt="格来云游戏 APK" data-original="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" src="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" style="display: inline;"></a>
+                        </dt>
+                        <dd class="title-dd">
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en">格来云游戏</a></dd>
+                        <dd>
+                            <div class="stars"><span class="score" title="格来云游戏 评级 8.4" style="width:84.00000000000001%"></span><span class="star">8.4</span></div>
+                        </dd>
+                        <dd>2018年06月22日</dd>
+                    </dl>
+                </div>
+                <div class="col s4">
+                    <dl>
+                        <dt>
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en"><img alt="格来云游戏 APK" data-original="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" src="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" style="display: inline;"></a>
+                        </dt>
+                        <dd class="title-dd">
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en">格来云游戏</a></dd>
+                        <dd>
+                            <div class="stars"><span class="score" title="格来云游戏 评级 8.4" style="width:84.00000000000001%"></span><span class="star">8.4</span></div>
+                        </dd>
+                        <dd>2018年06月22日</dd>
+                    </dl>
+                </div>
+                <div class="col s4">
+                    <dl>
+                        <dt>
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en"><img alt="格来云游戏 APK" data-original="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" src="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" style="display: inline;"></a>
+                        </dt>
+                        <dd class="title-dd">
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en">格来云游戏</a></dd>
+                        <dd>
+                            <div class="stars"><span class="score" title="格来云游戏 评级 8.4" style="width:84.00000000000001%"></span><span class="star">8.4</span></div>
+                        </dd>
+                        <dd>2018年06月22日</dd>
+                    </dl>
+                </div>
+                <div class="col s4">
+                    <dl>
+                        <dt>
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en"><img alt="格来云游戏 APK" data-original="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" src="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" style="display: inline;"></a>
+                        </dt>
+                        <dd class="title-dd">
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en">格来云游戏</a></dd>
+                        <dd>
+                            <div class="stars"><span class="score" title="格来云游戏 评级 8.4" style="width:84.00000000000001%"></span><span class="star">8.4</span></div>
+                        </dd>
+                        <dd>2018年06月22日</dd>
+                    </dl>
+                </div>
+                <div class="col s4">
+                    <dl>
+                        <dt>
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en"><img alt="格来云游戏 APK" data-original="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" src="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" style="display: inline;"></a>
+                        </dt>
+                        <dd class="title-dd">
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en">格来云游戏</a></dd>
+                        <dd>
+                            <div class="stars"><span class="score" title="格来云游戏 评级 8.4" style="width:84.00000000000001%"></span><span class="star">8.4</span></div>
+                        </dd>
+                        <dd>2018年06月22日</dd>
+                    </dl>
+                </div>
+                <div class="col s4">
+                    <dl>
+                        <dt>
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en"><img alt="格来云游戏 APK" data-original="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" src="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" style="display: inline;"></a>
+                        </dt>
+                        <dd class="title-dd">
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en">格来云游戏</a></dd>
+                        <dd>
+                            <div class="stars"><span class="score" title="格来云游戏 评级 8.4" style="width:84.00000000000001%"></span><span class="star">8.4</span></div>
+                        </dd>
+                        <dd>2018年06月22日</dd>
+                    </dl>
+                </div>
+                <div class="col s4">
+                    <dl>
+                        <dt>
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en"><img alt="格来云游戏 APK" data-original="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" src="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" style="display: inline;"></a>
+                        </dt>
+                        <dd class="title-dd">
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en">格来云游戏</a></dd>
+                        <dd>
+                            <div class="stars"><span class="score" title="格来云游戏 评级 8.4" style="width:84.00000000000001%"></span><span class="star">8.4</span></div>
+                        </dd>
+                        <dd>2018年06月22日</dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="col m4 hide-on-small-only">
+                <div class="col s12 y-card-yl">
+                    <div class="card blue-grey darken-1">
+                        <div class="index-tab">
+                            <a href="javascript:void(0)">dssadsdsdasdas</a>
+                        </div>
+                        <div class="card-content white-text">
+                            <p>I am a very simple card. I am good at containing small bits of information.
+                                I am convenient because I require little markup to use effectively.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12">
+                    <div class="card blue-grey darken-1">
+                        <div class="index-tab">
+                            <a href="javascript:void(0)">dssadsdsdasdas</a>
+                        </div>
+                        <div class="card-content white-text">
+                            <span class="card-title">Card Title</span>
+                            <p>I am a very simple card. I am good at containing small bits of information.
+                                I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m8 y-item-wrap">
+                <div class="index-tab">
+                    <a href="javascript:void(0)"><%- $GET('NEWS')%></a>
+                </div>
+                <div class="col s4">
+                    <dl>
+                        <dt>
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en"><img alt="格来云游戏 APK" data-original="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" src="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" style="display: inline;"></a>
+                        </dt>
+                        <dd class="title-dd">
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en">格来云游戏</a></dd>
+                        <dd>
+                            <div class="stars"><span class="score" title="格来云游戏 评级 8.4" style="width:84.00000000000001%"></span><span class="star">8.4</span></div>
+                        </dd>
+                        <dd>2018年06月22日</dd>
+                    </dl>
+                </div>
+                <div class="col s4">
+                    <dl>
+                        <dt>
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en"><img alt="格来云游戏 APK" data-original="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" src="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" style="display: inline;"></a>
+                        </dt>
+                        <dd class="title-dd">
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en">格来云游戏</a></dd>
+                        <dd>
+                            <div class="stars"><span class="score" title="格来云游戏 评级 8.4" style="width:84.00000000000001%"></span><span class="star">8.4</span></div>
+                        </dd>
+                        <dd>2018年06月22日</dd>
+                    </dl>
+                </div>
+                <div class="col s4">
+                    <dl>
+                        <dt>
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en"><img alt="格来云游戏 APK" data-original="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" src="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" style="display: inline;"></a>
+                        </dt>
+                        <dd class="title-dd">
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en">格来云游戏</a></dd>
+                        <dd>
+                            <div class="stars"><span class="score" title="格来云游戏 评级 8.4" style="width:84.00000000000001%"></span><span class="star">8.4</span></div>
+                        </dd>
+                        <dd>2018年06月22日</dd>
+                    </dl>
+                </div>
+                <div class="col s4">
+                    <dl>
+                        <dt>
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en"><img alt="格来云游戏 APK" data-original="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" src="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" style="display: inline;"></a>
+                        </dt>
+                        <dd class="title-dd">
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en">格来云游戏</a></dd>
+                        <dd>
+                            <div class="stars"><span class="score" title="格来云游戏 评级 8.4" style="width:84.00000000000001%"></span><span class="star">8.4</span></div>
+                        </dd>
+                        <dd>2018年06月22日</dd>
+                    </dl>
+                </div>
+                <div class="col s4">
+                    <dl>
+                        <dt>
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en"><img alt="格来云游戏 APK" data-original="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" src="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" style="display: inline;"></a>
+                        </dt>
+                        <dd class="title-dd">
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en">格来云游戏</a></dd>
+                        <dd>
+                            <div class="stars"><span class="score" title="格来云游戏 评级 8.4" style="width:84.00000000000001%"></span><span class="star">8.4</span></div>
+                        </dd>
+                        <dd>2018年06月22日</dd>
+                    </dl>
+                </div>
+                <div class="col s4">
+                    <dl>
+                        <dt>
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en"><img alt="格来云游戏 APK" data-original="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" src="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" style="display: inline;"></a>
+                        </dt>
+                        <dd class="title-dd">
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en">格来云游戏</a></dd>
+                        <dd>
+                            <div class="stars"><span class="score" title="格来云游戏 评级 8.4" style="width:84.00000000000001%"></span><span class="star">8.4</span></div>
+                        </dd>
+                        <dd>2018年06月22日</dd>
+                    </dl>
+                </div>
+                <div class="col s4">
+                    <dl>
+                        <dt>
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en"><img alt="格来云游戏 APK" data-original="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" src="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" style="display: inline;"></a>
+                        </dt>
+                        <dd class="title-dd">
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en">格来云游戏</a></dd>
+                        <dd>
+                            <div class="stars"><span class="score" title="格来云游戏 评级 8.4" style="width:84.00000000000001%"></span><span class="star">8.4</span></div>
+                        </dd>
+                        <dd>2018年06月22日</dd>
+                    </dl>
+                </div>
+                <div class="col s4">
+                    <dl>
+                        <dt>
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en"><img alt="格来云游戏 APK" data-original="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" src="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" style="display: inline;"></a>
+                        </dt>
+                        <dd class="title-dd">
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en">格来云游戏</a></dd>
+                        <dd>
+                            <div class="stars"><span class="score" title="格来云游戏 评级 8.4" style="width:84.00000000000001%"></span><span class="star">8.4</span></div>
+                        </dd>
+                        <dd>2018年06月22日</dd>
+                    </dl>
+                </div>
+                <div class="col s4">
+                    <dl>
+                        <dt>
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en"><img alt="格来云游戏 APK" data-original="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" src="https://image.winudf.com/v2/image/Y24uZ2xvdWQuY2xpZW50LmVuX2ljb25fMTUxNjM2OTkwM18wMjM/icon.png?w=75&amp;fakeurl=1&amp;type=.png" style="display: inline;"></a>
+                        </dt>
+                        <dd class="title-dd">
+                            <a title="格来云游戏 APK" href="/cn/gloud-games-best-emulator-for-xbox-pc-ps/cn.gloud.client.en">格来云游戏</a></dd>
+                        <dd>
+                            <div class="stars"><span class="score" title="格来云游戏 评级 8.4" style="width:84.00000000000001%"></span><span class="star">8.4</span></div>
+                        </dd>
+                        <dd>2018年06月22日</dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="col m4 hide-on-small-only">
+                <div class="col s12">
+                    <div class="card blue-grey darken-1">
+                        <div class="index-tab">
+                            <a href="javascript:void(0)">dssadsdsdasdas</a>
+                        </div>
+                        <div class="card-content white-text">
+                            <span class="card-title">Card Title</span>
+                            <p>I am a very simple card. I am good at containing small bits of information.
+                                I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 </body>
 
-
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.slider');
+        var instances = M.Slider.init(elems,{indicators:true});
+    });
+</script>
 
 </html>

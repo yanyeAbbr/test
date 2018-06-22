@@ -1,3 +1,8 @@
+<style>
+    .modal{
+        max-width: 500px;
+    }
+</style>
 <ul id="dropdown1" class="dropdown-content">
     <li><a href="?hl=zh-CN">中文</a></li>
     <li><a href="?hl=en">English</a></li>
@@ -7,15 +12,19 @@
         <a href="#!" class="brand-logo">Logo</a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-            <li><a href="javascript:void(0)"><%-$GET('NAV-GAME')%></a></li>
-            <li><a href="javascript:void(0)"><%-$GET('NAV-GAME')%></a></li>
+            <li><a href="javascript:void(0)"><%-$GET('NOTES')%></a></li>
+            <li><a href="javascript:void(0)"><%-$GET('NEWS')%></a></li>
             <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><%- $GET('NAV-NAME') %><i class="material-icons right"></i></a></li>
 
-            <% if(result && result !== undefined){%>
-            <li><a href="/auth/github"><%= result%></a></li>
+            <% if(result && result.name !== undefined){%>
+            <% if(result.isAdministrator){%>
+            <li><a href="/Administrator/login">管理员入口</a></li>
+            <%}%>
+            <li><a><%= result.name%></a></li>
             <li><a href="/logout">退出登录</a></li>
             <%}else{%>
             <li><a class="modal-trigger" href="#modal1">登录</a></li>
+            <li><a class="modal-trigger" href="#modal2">注册</a></li>
             <li><a href="/auth/github">使用 GitHub 登录</a></li>
             <li><a href="/auth/google">使用Google 登录</a></li>
             <%}%>
@@ -45,13 +54,43 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="password" type="password" class="validate" required>
+                        <input id="password1" type="password" class="validate" required>
+                        <label for="password1">Password</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email1" type="email" class="validate" required>
+                        <label for="email1">邮箱</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input class="waves-effect waves-green btn-flat" type="submit" value="确认">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="modal2" class="modal">
+    <div class="modal-content">
+        <h4>注册</h4>
+        <div class="row">
+            <form class="col s12" method="post" action="/doregister">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="姓名" id="name" name="name" type="text" class="validate" required>
+                        <label for="name">姓名</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="password" type="password" class="validate"  name="password" required>
                         <label for="password">Password</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="email" type="email" class="validate" required>
+                        <input id="email" type="email" class="validate" name="email" required>
                         <label for="email">邮箱</label>
                     </div>
                 </div>
@@ -77,5 +116,6 @@
         hover:true,
         coverTrigger:false
     });
+
 
 </script>

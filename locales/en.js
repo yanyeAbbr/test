@@ -1,6 +1,8 @@
 $CONFIG.text_language["en"] = {
     "NAV-NAME": "English",
     "NAV-GAME": "GAMES",
+    "NOTES": 'Notes',
+    "NEWS":'News'
 };
 
 

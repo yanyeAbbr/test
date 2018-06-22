@@ -2,12 +2,13 @@ const passport = require('passport');
 const GitHubStrategy = require('passport-github').Strategy;
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const user = require('../modle/users');
-
+const request = require('request');
 
 module.exports = function (app) {
     var data = {
         err : 0,
-        name : ''
+        name : '',
+        isAdministrator: false
     };
     let name  = '';
     console.error('这里是 路由里的userjs 文件');
@@ -45,8 +46,6 @@ module.exports = function (app) {
                 break;
         }
     });
-
-
     function fnuse(op) {
         let a = null;
         var b = null;
@@ -62,19 +61,24 @@ module.exports = function (app) {
         //  授权后获得的用户信息。。。。
         passport.use(new b(a,
             function (accessToken, refreshToken, profile, cb) {
+            if(profile.displayName === '闫野'){
+                console.log(11111)
+                data.isAdministrator = true;
+            }
                 data.name = profile.displayName;
                 return cb(null, profile);
             }
         ));
     }
-
     // 授权成功的回调函数以及各种限制 重定向到主页
     app.get('/auth/github/callback', passport.authenticate('github'), function (req, res) {
         req.session.name = data.name;
+        req.session.isAdministrator = data.isAdministrator;
         res.redirect('/')
     });
     app.get('/auth/google/callback', passport.authenticate('google', {scope: ['profile']}), function (req, res) {
         req.session.name = data.name;
+        req.session.isAdministrator = data.isAdministrator;
         res.redirect('/')
     });
 
@@ -84,5 +88,11 @@ module.exports = function (app) {
         req.session.name = undefined;
         res.redirect('/')
     });
+    //注册
+    app.post('/doregister',function (req, res) {
+
+        console.error(req)
+
+    })
 
 };

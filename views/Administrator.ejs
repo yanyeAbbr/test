@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理员入口</title>
+    <%- include inc/materialize.ejs%>
+    <style>
+        .input-field label {
+            color: white;
+        }
+        input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
+            border-bottom: 1px solid #fff !important;
+            box-shadow: none;
+        }
+
+
+
+        .cont {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+        .cont section {
+            width: 1200px;
+            height: 100%;
+            margin: 0 auto;
+        }
+        .cont_left {
+            position: relative;
+            top: 46%;
+            width: 650px;
+            float: left;
+            color: #fff;
+        }
+
+        .cont_left h1 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            letter-spacing: 4px;
+            background: transparent;
+        }
+        .cont_right {
+            position: relative;
+            top: 33%;
+            right: 0px;
+            float: right;
+            width: 350px;
+            height: 350px;
+            background: rgba(59, 56, 60, 0.16);
+            border: 1px solid rgba(255,255,255,.5);
+            padding: 50px 15px;
+        }
+        .cont_right h2 {
+            color: #fff;
+            font-size: 26px;
+        }
+        .cont_right input {
+            color: #fff !important;
+        }
+
+    </style>
+</head>
+<body>
+<%- include inc/canvas.ejs%>
+<section class="cont">
+    <section>
+        <div class="cont_left">
+            <p><h1>个人私有库后台</h1>
+            <p style="text-align: right;font-size: 20px;">网络爬虫、数据分析、学习记录</p>
+        </div>
+        <nav class="cont_right">
+            <h2>私有库登陆</h2>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="aa" type="text" class="validate">
+                    <label for="aa">账号 :</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="ss" type="password" class="validate">
+                    <label for="ss">密码 :</label>
+                </div>
+            </div>
+            <a class="waves-effect btn #eceff1 blue-grey">登录</a>
+
+        </nav>
+    </section>
+</section>
+
+</body>
+</html>

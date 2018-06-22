@@ -1,6 +1,8 @@
 $CONFIG.text_language["zh-CN"] = {
     "NAV-NAME": "中文（简体)",
     "NAV-GAME": "游戏",
+    "NOTES": '笔记',
+    "NEWS":'新闻'
 };
 
 $CONFIG.support_template_language["zh-CN"] = "cn";
