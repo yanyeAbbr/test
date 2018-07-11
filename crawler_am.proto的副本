@@ -1,0 +1,87 @@
+syntax = "proto3";
+
+package proto;
+
+
+
+service CrawlerAMService {
+
+        rpc CheckUpdate (CrawlerConfigRequest) returns (CrawlerConfigReply) {}
+        rpc CollectHistory (CrawlerTaskRequest) returns (CrawlerTaskReply) {}
+
+}
+
+message CrawlerConfigRequest {
+        //
+        repeated CheckRequest checkList = 1;
+}
+
+message CheckRequest {
+        // apkName: 查找的app name
+        string package_Name = 1;
+        // url: 该项目apkmirror所在页面
+        string url = 2;
+        // version: 当前版本
+        string last_Version_Code = 3;
+
+}
+
+message CrawlerConfigReply {
+        repeated DetailReply appInfoList = 1;
+}
+
+
+
+message CrawlerTaskRequest{
+        // package:包名
+        string packageName = 1;
+        // 页码
+        int64 page = 2;
+}
+
+message CrawlerTaskReply{
+       //apk 详情
+       repeated DetailReply appInfoList = 1;
+}
+
+message DevLink {
+        string name = 1;
+        string href = 2;
+}
+
+
+message DetailReply {
+        // apk 名称
+        string apkName = 1;
+        // apk 图标
+        string apkIcon = 2;
+        // apk 最新版本
+        string apkVersion =3;
+        // apk 上传时间
+        string apkUpload = 4;
+        // apk 安装包大小
+        string apkSize = 5;
+        // apk 下载次数
+        string downloads = 6;
+        // apk 下载链接 同一个apk有不同的变种，会有多个url
+        repeated DownloadLink apkLink = 7;
+        // apk 查询时间
+        string UpdateTime = 8;
+}
+
+message DownloadUploadeRequest{
+        // package:包名
+        string package = 1;
+        // link: 图片的原始连接
+        string link = 2;
+}
+message DownloadUploadReply{
+        repeated DetailReply appInfoList = 1;
+}
+
+message DownloadLink{
+        //apk相同版本变体名
+        string variantName = 1;
+        //下载链接
+        string downlaodUrl = 2;
+}

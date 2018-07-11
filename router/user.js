@@ -3,14 +3,22 @@ const GitHubStrategy = require('passport-github').Strategy;
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const user = require('../modle/users');
 const request = require('request');
+const bodyParser = require('body-parser');
+const md5 = require('../modle/md5')
+
+
+let jsonParser = bodyParser.json();
+
+// create application/x-www-form-urlencoded parser
+let urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 module.exports = function (app) {
-    var data = {
+    let data = {
         err : 0,
         name : '',
-        isAdministrator: false
+        isAdministrator: false,
     };
-    let name  = '';
+
     console.error('这里是 路由里的userjs 文件');
     let github_oauth = {
         clientID: '722b939ee186f3fade40',
@@ -61,8 +69,8 @@ module.exports = function (app) {
         //  授权后获得的用户信息。。。。
         passport.use(new b(a,
             function (accessToken, refreshToken, profile, cb) {
-            if(profile.displayName === '闫野'){
-                console.log(11111)
+            if(profile.displayName === '闫野' || profile.displayName === 'yanye'){
+                console.log('我是管理员....');
                 data.isAdministrator = true;
             }
                 data.name = profile.displayName;
@@ -83,16 +91,70 @@ module.exports = function (app) {
     });
 
 
+    //注册
+    app.post('/doregister', urlencodedParser, function (req, res) {
+        if (!req.body) return res.sendStatus(400);
+     let name  = req.body.name;
+     let pas  = req.body.password;
+     let password = md5(md5(pas,'ya'),'hu');
+     let email  = req.body.email;
+        user.find({name:req.body.name},function (err, data) {
+           if (err){
+               data.err =  1 // 数据库错误
+           }else{
+               if(data.length !== 0){
+                   data.err =  2 // 已注册
+               }else{
+                   user.create({
+                       name:name,
+                       email:email,
+                       password:password
+                   },function (err, data) {
+                       if(err){
+                           console.log(err)
+                       }else{
+                         req.session.name = name;
+                           res.redirect('/')
+                       }
+                   })
+               }
+           }
+
+        })
+
+    });
+    // 登录
+    app.post('/login', urlencodedParser,function (req, res) {
+        let name  = req.body.name;
+        let pas  = req.body.password;
+        let password = md5(md5(pas,'ya'),'hu');
+        console.log(name,pas);
+        user.find({name:name},function (err, d) {
+            if(d.length === 0){
+                 data.err = 1;
+            }else{
+                if(d[0].password === password){
+                    if(name === '闫野' || name === 'yanye'){
+                        req.session.isAdministrator = true;
+                    }else{
+                        req.session.isAdministrator = false;
+                    }
+                    req.session.name =  name;
+                    data.err = 0;
+                }else{
+                    data.err = 2; // 密码错误
+                }
+            }
+            res.json({result:data})
+        });
+
+    });
+
     // 退出登录  logout
     app.get('/logout', function (req, res) {
         req.session.name = undefined;
         res.redirect('/')
     });
-    //注册
-    app.post('/doregister',function (req, res) {
 
-        console.error(req)
-
-    })
 
 };
