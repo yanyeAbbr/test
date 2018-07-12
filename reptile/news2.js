@@ -20,11 +20,13 @@ const news = require('../modle/news');
          pageUrl.push('http://www.chinanews.com/scroll-news/news'+i+'.html')
      }
 // 拿到每页的新闻链接
+
+     let ff = 0;
      pageUrl.forEach(function (ele, index) {
          superagent.get(ele)
              .end(function (err, result) {
                  // 使用jq 解析
-                 if(result.text){
+                 if(result && result.text){
                      let $ = cheerio.load(result.text);
                      // 拿到所有的链接标签  得到的是伪数组
                      let aArr = $('.dd_bt a');
@@ -37,7 +39,11 @@ const news = require('../modle/news');
                      }
                  }else{
                      console.log('html 获取失败 重新启动');
+                     ff++;
                      reptileMover();
+                     if(ff === 3){
+                         throw error('重启'+ff+'次失败','中断进程...')
+                     }
                  }
 
              })
