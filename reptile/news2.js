@@ -24,17 +24,22 @@ const news = require('../modle/news');
          superagent.get(ele)
              .end(function (err, result) {
                  // 使用jq 解析
-                 let $ = cheerio.load(result.text);
-                 // 拿到所有的链接标签  得到的是伪数组
-                 let aArr = $('.dd_bt a');
-
-                 // 循环取出链接
-                 for(let i =0; i< aArr.length; i++){
-                     let href = 'http:'+ aArr.eq(i).attr('href');
-                     console.log('正在获取第'+index+'页的第'+i+'个链接，它是：',href);
-                     urlArray.push(href);
-                     eq.emit('new3',href)
+                 if(result.text){
+                     let $ = cheerio.load(result.text);
+                     // 拿到所有的链接标签  得到的是伪数组
+                     let aArr = $('.dd_bt a');
+                     // 循环取出链接
+                     for(let i =0; i< aArr.length; i++){
+                         let href = 'http:'+ aArr.eq(i).attr('href');
+                         console.log('正在获取第'+index+'页的第'+i+'个链接，它是：',href);
+                         urlArray.push(href);
+                         eq.emit('new3',href)
+                     }
+                 }else{
+                     console.log('html 获取失败 重新启动');
+                     reptileMover();
                  }
+
              })
      });
 
@@ -115,7 +120,6 @@ const news = require('../modle/news');
              },delay)
 
          };
-
          async.mapLimit(urlArray,5,function (url,callback) {
              // urlArray 每个都需要调用这个函数
              reptileMover(url,callback)
@@ -123,7 +127,7 @@ const news = require('../modle/news');
              // 当全部完成调用这里的函数
              // console.log(contentArr);
              // 操作
-             time(900)
+             time(600)
          })
      });
 
@@ -160,13 +164,14 @@ const news = require('../modle/news');
     // 定时抓取数据
     function time (time) {
      let sum = time;
-     setInterval(function () {
+     let interval = setInterval(function () {
          sum--;
          console.log('距离下次重启还有'+sum+'秒');
          if(sum === 0){
              console.log('开始重启....');
-             sum = 1000;
+             sum = time;
              reptileMover();
+             clearInterval(interval)
          }
      },1000);
  }
