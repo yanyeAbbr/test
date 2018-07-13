@@ -16,7 +16,7 @@ const news = require('../modle/news');
          eq = new eventproxy();
 
 // 1 访问地址   http://www.chinanews.com/scroll-news/news2.html
-     for (let i=1; i <= 10; i++){
+     for (let i=1; i < 10; i++){
          pageUrl.push('http://www.chinanews.com/scroll-news/news'+i+'.html')
      }
 // 拿到每页的新闻链接
@@ -33,14 +33,14 @@ const news = require('../modle/news');
                      // 循环取出链接
                      for(let i =0; i< aArr.length; i++){
                          let href = 'http:'+ aArr.eq(i).attr('href');
-                         console.log('正在获取第'+index+'页的第'+i+'个链接，它是：',href);
+                         // console.log('正在获取第'+index+'页的第'+i+'个链接，它是：',href);
                          urlArray.push(href);
                          eq.emit('new3',href)
                      }
                  }else{
-                     console.log('html 获取失败 重新启动');
-                     ff++;
                      reptileMover();
+                     ff++;
+                     console.log('重启'+ff+'次失败');
                      if(ff === 3){
                          throw error('重启'+ff+'次失败','中断进程...')
                      }
@@ -61,15 +61,15 @@ const news = require('../modle/news');
          let reptileMover = function (url, callback) {
              let delay =  parseInt( Math.random() * 300000000 % 1000, 10);  // 延迟
              sum++;
-             console.log('当前的并发是'+sum+' 正在抓取的是:',url, '耗时：',delay); // 输出
-             let love = ['卫星', '台湾','武器','暴雨','外交部']; // 我的关注
+             // console.log('当前的并发是'+sum+' 正在抓取的是:',url, '耗时：',delay); // 输出
+             let love = ['卫星', '台湾','武器','暴雨','外交部','老人']; // 我的关注
              let annoying = ['安倍', '日本']; // 讨嫌的
              superagent.get(url)
                  .charset('gbk')
                  .set('encoding','binary')
                  .end(function (err, result) {
                      if(err){
-                         console.log('错误')
+                         console.log('错误');
                      }else{
                          let $ = cheerio.load(result.text, {decodeEntities: false});
                          let title = _.trim( $('h1').html() );
@@ -94,30 +94,19 @@ const news = require('../modle/news');
                          * */
 
                          // 找自己关注的  去除讨厌的  再存入数据库
-                         let sign = false;
-                         async.waterfall([
-                             function(callback){
-                                 love.forEach(function (item) {
-                                     if(title.indexOf(item) !== -1){
-                                         callback(null,title)
-                                     }
-                                 });
-                             },
-                             function(arg1,callback){
-                                 annoying.forEach(function (ele) {
-                                     if(arg1.indexOf(ele) === -1){
-                                         sign = true
+
+                         love.forEach(function (ele) {
+                             if(title.indexOf(ele) !== -1){
+                                 annoying.some(function (e) {
+                                     if(title.indexOf(e) === -1){
+                                         saveData({title:title,url:url,info:info});
+                                         return true;
                                      }else{
-                                         sign = false
+                                         return false;
                                      }
                                  });
-                                if(sign){
-                                    callback(null, title,url,info)
-                                }
                              }
-                         ],function () {
-                             saveData({title:title,url:url,info:info});
-                         });
+                         })
                      }
                  });
              setTimeout(function () {
@@ -133,7 +122,7 @@ const news = require('../modle/news');
              // 当全部完成调用这里的函数
              // console.log(contentArr);
              // 操作
-             time(600)
+             time(30)
          })
      });
 
