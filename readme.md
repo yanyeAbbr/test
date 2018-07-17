@@ -16,9 +16,6 @@
 
 
 #### ps
- 数据保存有问题
-   。。。。。。
-    
     echo "# ass" >> README.md
     git init
     git add README.md
