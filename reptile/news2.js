@@ -95,16 +95,13 @@ const news = require('../modle/news');
 
                          // 找自己关注的  去除讨厌的  再存入数据库
 
+                         let re = /^([^日本]|[^安倍]f)+$/;
                          love.forEach(function (ele) {
                              if(title.indexOf(ele) !== -1){
-                                 annoying.some(function (e) {
-                                     if(title.indexOf(e) === -1){
-                                         saveData({title:title,url:url,info:info});
-                                         return true;
-                                     }else{
-                                         return false;
-                                     }
-                                 });
+                                 if(re.test(title)){
+                                     console.log(re.test(title),'PP>>>');
+                                     saveData({title:title,url:url,info:info});
+                                 }
                              }
                          })
                      }
@@ -144,7 +141,7 @@ const news = require('../modle/news');
                          if(save_error){
                              console.log('保存时错误')
                          }else{
-                             console.log(save_result, '数据保存完成。。')
+                             // console.log(save_result, '数据保存完成。。')
                          }
                      })
                  }
