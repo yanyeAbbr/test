@@ -6,6 +6,7 @@ $CONFIG.text_language["zh-CN"] = {
     "LOGIN":"登录",
     "LOGOUT":"退出登录",
     "REGISTER":"注册",
+    "MORE":"更多",
 };
 
 $CONFIG.support_template_language["zh-CN"] = "cn";

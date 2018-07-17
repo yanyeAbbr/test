@@ -6,6 +6,7 @@ $CONFIG.text_language["en"] = {
     "LOGIN":"Login",
     "LOGOUT":"Logout",
     "REGISTER":"register",
+    "MORE":"More",
 };
 
 
