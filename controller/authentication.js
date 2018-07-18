@@ -1,4 +1,5 @@
-var util = require('util');
+const util = require('util');
+const _ = require('lodash');
 exports.index = function (req, res, next) {
     /*
     * 定义变量 $_$ 获取 用户访问地址
@@ -7,9 +8,14 @@ exports.index = function (req, res, next) {
     * views 局部变量 添加自定义的方法
     * */
 
+    let menu = [{name:'笔记', url:'/admin_notes', icon:'picture_in_picture'},{name:'新闻', url:'/admin_news',icon:'picture_in_picture'}];
     res.locals.$_$ = {
         req_url: req.url,//请求url
     };
+    if(req.session.login){
+        res.locals.$_$.menu = menu;
+        res.locals.$_$.info = menu[ _.findIndex(menu, function(o) { return o.url === req.url; })];
+    }
     let ll_key = 'en';
         //设置用户设置语言
     if(req.session.lang !== undefined){

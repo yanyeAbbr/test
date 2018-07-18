@@ -1,0 +1,110 @@
+<style>
+    .sidebar, .toggle-sidebar-button {
+        transition: width 0.3s;
+    }
+    .sidebar {
+        display: none;
+        width: 240px;
+        top: 50px;
+    }
+    @media (min-width: 768px) {
+        .sidebar {
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+            left: 0;
+            top: 64px;
+            bottom: 0;
+            display: block;
+            position: fixed;
+            overflow-x: hidden;
+            overflow-y: auto;
+            background: white;
+            z-index: 1031;
+        }
+    }
+
+    .nav-sidebar {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+    /*main*/
+    .main{
+        right: 0;
+        bottom: 0;
+        margin-left: 0;
+        padding-top: 50px;
+        transition: margin-left 0.3s;
+    }
+    @media (min-width: 768px){
+        .main {
+            margin-left: 240px;
+            padding: 0;
+        }
+    }
+    .main> .panel{
+        border: solid 1px transparent;
+        background-color: #f7f7f7;
+    }
+
+
+    /* 侧边导航栏 tabs*/
+    .nav-fold-wrap{
+        display: none;
+    }
+    .nav-fold {
+        margin: 0;
+    }
+    .nav-fold > li{
+        white-space: nowrap;
+        line-height: 48px;
+    }
+    .nav-fold li a {
+        display: inherit;
+        color: rgba(0, 0, 0, 0.87);
+        padding: 0 16px;
+    }
+    .nav-fold li.active a {
+        background-color: #5967b3;
+        color: white;
+    }
+    .nav-fold li .material-icons {
+        line-height: 48px;
+    }
+     /*main---*/
+    .main>.panel-primary>.panel-heading {
+        background-color: #eaeaea;
+        border-color: transparent;
+        line-height: 48px;
+        font-size: 16px;
+        color: rgba(0, 0, 0, 0.87);
+        padding: 0 15px;
+    }
+    .main>.panel-primary>.panel-heading > .material-icons{
+        line-height: 48px;
+    }
+    .main>.panel-primary .tabs{
+        background: transparent;
+        border-top: 1px solid #ddd;
+    }
+
+    /*body ---*/
+    body{
+        background-color: #eaeaea;
+    }
+</style>
+<%- include ./admin_nav.ejs%>
+    <!--左边菜单 -->
+    <div class="sidebar">
+        <ul class="nav-fold">
+            <% if($_$.menu){%>
+                <% if($_$.menu.length > 0){%>
+           <% $_$.menu.forEach(function (ele, index) {%>
+           <li class="item<%= $_$.req_url == ele.url ? ' active':''%>"><a href="<%= ele.url%>"><i class="material-icons left"><%= ele.icon%></i><%= ele.name%></a></li>
+            <%})%>
+            <%}%>
+            <%}%>
+        </ul>
+    </div>
+    <!--右边内容 -->
+    <div class="main">
+
+

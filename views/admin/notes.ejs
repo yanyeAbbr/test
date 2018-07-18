@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>notes</title>
+    <%- include ../inc/materialize.ejs%>
+    <style>
+        #div1{
+           overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<%- include ../inc/adminbegin.ejs%>
+<div class="panel panel-primary">
+    <div class="panel-heading"><i class="material-icons left"><%= $_$.info.icon%></i> <%= $_$.info.name%></div>
+    <div class="col s12">
+        <ul class="tabs">
+            <li class="tab col s2"><a class="active" href="#test1">测试 1</a></li>
+        </ul>
+    </div>
+
+</div>
+<div id="test1" class="col s12" style="padding: 0 15px">
+    1111
+
+    <div id="div1"></div>
+</div>
+</body>
+<script src="/js/wangEditor.js"></script>
+<script>
+    $(document).ready(function(){
+        $('ul.tabs').tabs();
+    });
+
+
+//    let E = window.wangEditor
+//    let editor = new E('#div1')
+//    editor.create()
+</script>
+</html>

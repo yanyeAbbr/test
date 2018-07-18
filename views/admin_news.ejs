@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <%- include inc/materialize.ejs%>
+    <title>后台管理</title>
+    <style>
+        .sidebar, .toggle-sidebar-button {
+            transition: width 0.3s;
+        }
+        .sidebar {
+            display: none;
+            width: 240px;
+            top: 50px;
+        }
+        @media (min-width: 768px) {
+            .sidebar {
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+                left: 0;
+                top: 64px;
+                bottom: 0;
+                display: block;
+                position: fixed;
+                overflow-x: hidden;
+                overflow-y: auto;
+                background: white;
+                z-index: 1031;
+            }
+        }
+
+        .nav-sidebar {
+            margin-left: -15px;
+            margin-right: -15px;
+        }
+        /*main*/
+        .main{
+            right: 0;
+            bottom: 0;
+            margin-left: 0;
+            padding-top: 50px;
+            transition: margin-left 0.3s;
+        }
+        @media (min-width: 768px){
+            .main {
+                margin-left: 240px;
+               padding: 0;
+            }
+        }
+        .main> .panel{
+            border: solid 1px transparent;
+            background-color: #f7f7f7;
+        }
+
+
+/* 侧边导航栏 tabs*/
+        .nav-fold-wrap{
+            display: none;
+        }
+        .nav-fold {
+            margin: 0;
+        }
+        .nav-fold > li{
+            white-space: nowrap;
+            line-height: 48px;
+        }
+        .nav-fold li a {
+            display: inherit;
+            color: rgba(0, 0, 0, 0.87);
+            padding: 0 16px;
+        }
+        .nav-fold li.active a {
+            background-color: #5967b3;
+            color: white;
+        }
+        .nav-fold li .material-icons {
+            line-height: 48px;
+        }
+
+    </style>
+</head>
+<body>
+<%- include inc/admin_nav.ejs%>
+
+<div class="row">
+    <!--左边菜单 -->
+    <div class="sidebar">
+        <ul class="nav-fold">
+            <li class="item active">
+                <a href="#test1"><i class="material-icons left">picture_in_picture</i> xxxx</a>
+            </li>
+            <li class="item"><a href="#test2">   <i class="material-icons left">picture_in_picture</i> 文章</a></li>
+
+        </ul>
+    </div>
+    <!--左边菜单结束 -->
+
+    <!--右边内容 -->
+    <div class="main">
+        <div  class="col s12 nav-fold-wrap" style="display: block">
+
+        </div>
+        <div  class="col s12 nav-fold-wrap">Test 2</div>
+    </div>
+    <!--右边内容结束 -->
+</div>
+
+</body>
+
+<script>
+   $('.nav-fold').on('click', 'li', function () {
+       $(this).addClass('active').siblings('li').removeClass('active');
+       $('.main').children('.nav-fold-wrap').eq($(this).index()).css({display: 'block'}).siblings('.nav-fold-wrap').css({display: 'none'})
+   })
+
+</script>
+
+
+</html>

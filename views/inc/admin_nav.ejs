@@ -1,0 +1,44 @@
+<style>
+    .admin_nav{
+        padding: 0 15px;
+    }
+    .admin_nav a {
+        outline: none
+    }
+</style>
+<nav>
+    <div class="nav-wrapper admin_nav indigo">
+        <a href="#!" class="brand-logo">Logo</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="#">系统管理首页</a></li>
+            <li><a class="dropdown-trigger" href="#!" data-target="admin-setting">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a href="#">管理员</a></li>
+        </ul>
+    </div>
+</nav>
+<!--系统设置内容-->
+<ul id="admin-setting" class="dropdown-content">
+    <li><a href="#!">一</a></li>
+    <li><a href="#!">二</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">三</a></li>
+</ul>
+<!--小屏幕点击展示-->
+<ul class="sidenav" id="mobile-demo">
+    <li><a href="#">系统管理首页</a></li>
+    <li><a class="dropdown-trigger" href="#!" data-target="admin-setting">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+    <li><a href="#">管理员</a></li>
+</ul>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.sidenav');
+        M.Sidenav.init(elems,{});
+    });
+    $(".dropdown-trigger").dropdown({
+        hover:true,
+        coverTrigger: false
+    });
+
+
+</script>

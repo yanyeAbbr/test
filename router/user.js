@@ -4,7 +4,7 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const user = require('../modle/users');
 const request = require('request');
 const bodyParser = require('body-parser');
-const md5 = require('../modle/md5')
+const md5 = require('../modle/md5');
 
 
 let jsonParser = bodyParser.json();
@@ -150,6 +150,30 @@ module.exports = function (app) {
 
     });
 
+    // 后台登录
+
+    app.post('/admin/login',urlencodedParser,function (req, res) {
+        let name = req.body.name,
+            password = req.body.password,
+            count = 0;
+        let code = {
+            error : 0
+        };
+        let administrator = [{'name':'yanye','password':'111'},{'name':'liulaoda','password':'meiguihua'},{'name':'fff','password':'sss'}];
+        administrator.forEach(function (ele) {
+            count++;
+            if(name === ele.name){
+                if(password !== ele.password){
+                    code.error = 2   // 密码错误
+                }else{
+                    req.session.login = true;
+                }
+            }else if(count === administrator.length && name !== ele.name){
+                code.error = 1 // 没有这个账号
+            }
+        });
+        res.json(code)
+    });
     // 退出登录  logout
     app.get('/logout', function (req, res) {
         req.session.name = undefined;

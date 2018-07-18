@@ -12,9 +12,6 @@
             border-bottom: 1px solid #fff !important;
             box-shadow: none;
         }
-
-
-
         .cont {
             position: absolute;
             left: 0;
@@ -79,19 +76,33 @@
             <h2>私有库登陆</h2>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="aa" type="text" class="validate">
-                    <label for="aa">账号 :</label>
+                    <input id="name" type="text" class="validate">
+                    <label for="name">账号 :</label>
                 </div>
                 <div class="input-field col s12">
-                    <input id="ss" type="password" class="validate">
-                    <label for="ss">密码 :</label>
+                    <input id="password" type="password" class="validate">
+                    <label for="password">密码 :</label>
                 </div>
             </div>
             <a class="waves-effect btn #eceff1 blue-grey login-btn">登录</a>
-
         </nav>
     </section>
 </section>
-
 </body>
+<script>
+    $('.login-btn').on('click',function () {
+        let name = $('#name').val(),
+            password = $('#password').val();
+        $.post('/admin/login',{name : name, password : password},function (result) {
+            if(result.error === 1){
+                M.toast({html: '没有这个账号'})
+            }else if( result.error === 2){
+                M.toast({html: '密码错误'})
+            }else if(result.error === 0){
+                M.toast({html: '管理员登录'})
+                window.location.href = '/admin_notes'
+            }
+        })
+    })
+</script>
 </html>
