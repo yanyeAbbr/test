@@ -43,5 +43,6 @@ const $$ = {
             setHeight();
             setInterval(setHeight, 300);
         })(frame);
-    }
-}
+    },
+
+};

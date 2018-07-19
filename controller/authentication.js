@@ -12,6 +12,12 @@ exports.index = function (req, res, next) {
     res.locals.$_$ = {
         req_url: req.url,//请求url
     };
+    if(req.session.name){
+        res.locals.$_$.message = {
+            name:req.session.name,
+            isAdministrator : req.session.isAdministrator ? req.session.isAdministrator : false,
+        }
+    }
     if(req.session.login){
         res.locals.$_$.menu = menu;
         res.locals.$_$.info = menu[ _.findIndex(menu, function(o) { return o.url === req.url; })];

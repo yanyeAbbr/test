@@ -7,7 +7,7 @@
     <li><a href="?hl=zh-CN">中文</a></li>
     <li><a href="?hl=en">English</a></li>
 </ul>
-<nav style="padding: 0 10px" class="indigo">
+<nav style="padding: 0 10px">
     <div class="nav-wrapper">
         <a href="#!" class="brand-logo">Logo</a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -15,12 +15,11 @@
             <li><a href="javascript:void(0)"><%-$GET('NOTES')%></a></li>
             <li><a href="javascript:void(0)"><%-$GET('NEWS')%></a></li>
             <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><%- $GET('NAV-NAME') %><i class="material-icons right"></i></a></li>
-
-            <% if(result && result.name !== undefined){%>
-            <% if(result.isAdministrator){%>
+            <% if($_$.message && $_$.message.name !== undefined){%>
+            <% if($_$.message.isAdministrator){%>
             <li><a href="/Administrator/login">管理员入口</a></li>
             <%}%>
-            <li><a><%= result.name%></a></li>
+            <li><a><%= $_$.message.name%></a></li>
             <li><a href="/logout"><%- $GET('LOGOUT')%></a></li>
             <%}else{%>
             <li><a class="modal-trigger" href="#modal1"><%- $GET('LOGIN')%></a></li>
@@ -28,8 +27,6 @@
             <li><a href="/auth/github">使用 GitHub 登录</a></li>
             <li><a href="/auth/google">使用Google 登录</a></li>
             <%}%>
-
-
         </ul>
     </div>
 </nav>

@@ -8,6 +8,7 @@
 -   爬虫插件  superagent --  superagent-charset  -- eventproxy  -- cheerio -- async  -- lodash
 -   富文本编辑器  wangEditor
 -   post formidable
+-   日期插件 timeago.js 全局变量 global
 #### 功能  
 -   多语言切换 
 -   第三方登录

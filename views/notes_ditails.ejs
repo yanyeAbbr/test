@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <%- include inc/materialize.ejs%>
+    <style>
+        .post .header {
+            padding: 24px;
+        }
+        .post .title {
+            font-size: 1.5rem;
+            padding: 10px 0;
+        }
+        .post i.left{
+            margin-right: 3px;
+        }
+        .material-placeholder > img{
+            width: 100%;
+            height: auto;
+        }
+        .content-body-wrap{
+            padding: 20px 30px;
+        }
+    </style>
+</head>
+<body>
+<%- include inc/header_nav.ejs%>
+
+<main>
+    <div class="row">
+        <div class="s12 m8 l6 offset-m2 offset-l3 colChangeFlag col">
+            <div class="card">
+                <div class="post">
+                    <div class="header">
+                        <div class="title"><%= title%></div>
+                        <div class="grey-text" style="font-size: .8rem">
+                            <i class="material-icons tiny left">mode_edit</i> 编辑中 <br>
+                            <i class="material-icons tiny left">star</i><%= classify%><br>
+                            <i class="material-icons tiny left">query_builder</i><%= $$.timeAgo(UpdateDate)%>  更新 · 2018-07-16 创建
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div id="content" class="content">
+                        <div class="content-body">
+                            <div class="content-body-wrap">
+                                <%- body%>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+<script src="/js/timeago.min.js"></script>
+<script>
+
+
+
+</script>
+</html>
