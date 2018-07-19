@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <%- include ../inc/materialize.ejs%>
+    <style>
+        .save-notes{
+            margin-top: 15px;
+        }
+        #header_wrap{
+            padding: 0 100px;
+        }
+    </style>
+</head>
+<body>
+<div class="row" id="header_wrap">
+    <div class="input-field col s12">
+        <input id="first_title" type="text" class="validate">
+        <label for="first_title">标题</label>
+    </div>
+    <div class="input-field col s12">
+        <input id="first_class" type="text" class="validate">
+        <label for="first_class">类别</label>
+    </div>
+    <div id="div1"></div>
+    <div class="center-align">
+        <a class="waves-effect waves-light btn save-notes" id="save-notes"><i class="material-icons left">spellcheck</i>保存</a>
+    </div>
+</div>
+
+</body>
+<script src="/js/wangEditor.js"></script>
+<script>
+        let E = window.wangEditor
+        let editor = new E('#div1')
+        editor.customConfig.menus = [
+            'head',  // 标题
+            'bold',  // 粗体
+            'fontSize',  // 字号
+            'underline',  // 下划线
+            'foreColor',  // 文字颜色
+            'backColor',  // 背景颜色
+            'link',  // 插入链接
+            'list',  // 列表
+            'justify',  // 对齐方式
+            'quote',  // 引用
+            'emoticon',  // 表情
+            'image',  // 插入图片
+        ]
+        editor.create()
+        $('#save-notes').click(function () {
+            $(this).text('正在保存...').addClass('disabled')
+            let body = editor.txt.html()
+            let title = $('#first_title').val();
+            let classify = $('#first_class').val();
+            let url = '/admin/notes/saveNotes'
+            $.post(url,{body:body,title:title,classify:classify},function (result) {
+                if(result.err === 0){
+                    M.toast({html: '保存成功'})
+                }
+            })
+            $(this).text('保存').removeClass('disabled')
+
+        })
+
+</script>
+</html>

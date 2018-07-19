@@ -6,6 +6,8 @@
 -   数据库插件 -- mongoose
 -   第三方登录插件 -- passport  passport-github  passport-google-oauth20
 -   爬虫插件  superagent --  superagent-charset  -- eventproxy  -- cheerio -- async  -- lodash
+-   富文本编辑器  wangEditor
+-   post formidable
 #### 功能  
 -   多语言切换 
 -   第三方登录

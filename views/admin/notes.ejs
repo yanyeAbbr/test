@@ -16,26 +16,40 @@
     <div class="panel-heading"><i class="material-icons left"><%= $_$.info.icon%></i> <%= $_$.info.name%></div>
     <div class="col s12">
         <ul class="tabs">
-            <li class="tab col s2"><a class="active" href="#test1">测试 1</a></li>
+            <!--<li class="tab col s2"><a class="active" href="#test1">测试 1</a></li>-->
+            <li class="tab col s2"><a class="active" href="#tab1" data-toggle="tab"> 新增笔记 </a></li>
+            <li class="tab col s2"><a class="" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-th-list"></span> 修改笔记 </a></li>
         </ul>
     </div>
 
 </div>
-<div id="test1" class="col s12" style="padding: 0 15px">
-    1111
 
-    <div id="div1"></div>
+
+
+<div class="panel-bordy">
+    <div class="tab-pane fade" id="tab1">
+        <button class="btn btn-primary btn-iframe btn-load" data-src="/admin/notes_index" type="button"><span
+                    class="glyphicon glyphicon-search"></span> 查看/刷新1
+        </button>
+    </div>
+
+    <div class="tab-pane fade" id="tab2">
+        <button class="btn btn-primary btn-iframe btn-load" data-src="tag_log" type="button"><span
+                    class="glyphicon glyphicon-search"></span> 查看/刷新2
+        </button>
+    </div>
 </div>
+
+
+<!--<div id="test1" class="col s12" style="padding: 0 15px">-->
+    <!--<div id="div1"></div>-->
+<!--</div>-->
 </body>
-<script src="/js/wangEditor.js"></script>
 <script>
     $(document).ready(function(){
         $('ul.tabs').tabs();
     });
-
-
-//    let E = window.wangEditor
-//    let editor = new E('#div1')
-//    editor.create()
+    $$.btnFrame('.btn-iframe');
+    $$.tabBtnLoad();
 </script>
 </html>

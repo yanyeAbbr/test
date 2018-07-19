@@ -7,4 +7,6 @@ module.exports = function (app) {
     require('./Administrator')(app); // 管理员登录退出
     require('./admin_news')(app);  // 管理员登录 主页
     require('./admin_notes')(app);  // 管理员登录 笔记页
+    require('./notes')(app);  // 笔记页
+
 };
