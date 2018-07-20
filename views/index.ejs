@@ -203,7 +203,7 @@
                         <dd>
                             <div class="stars"><span class="score" title="格来云游戏 评级 8.4" style="width:84.00000000000001%"></span><span class="star">类别：<%= ele.classify%></span></div>
                         </dd>
-                        <dd>时间：<%= ele.UpdateDate%></dd>
+                        <dd>时间：<%= ele.creationTime.toLocaleDateString()%></dd>
                     </dl>
                 </div>
                     <%})%>

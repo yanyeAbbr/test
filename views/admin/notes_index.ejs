@@ -8,26 +8,39 @@
             margin-top: 15px;
         }
         #header_wrap{
-            padding: 0 100px;
+
         }
+        .selecedP{
+            margin-top: 20px;
+            margin-left: 15px;
+        }
+
     </style>
 </head>
 <body>
 <div class="row" id="header_wrap">
-    <div class="input-field col s12">
+    <div class="input-field col s4">
         <input id="first_title" type="text" class="validate">
         <label for="first_title">标题</label>
     </div>
-    <div class="input-field col s12">
+    <div class="input-field col s4">
         <input id="first_class" type="text" class="validate">
         <label for="first_class">类别</label>
     </div>
-    <div id="div1"></div>
-    <div class="center-align">
-        <a class="waves-effect waves-light btn save-notes" id="save-notes"><i class="material-icons left">spellcheck</i>保存</a>
+    <div class="input-field col s4">
+        <p class="selecedP">
+            <label>
+                <input type="checkbox"/>
+                <span>已完成</span>
+            </label>
+        </p>
     </div>
 </div>
-
+<div id="div1"></div>
+<div class="center-align">
+    <a class="waves-effect waves-light btn save-notes" id="save-notes"><i class="material-icons left">spellcheck</i>保存</a>
+</div>
+<a href="ss"></a>
 </body>
 <script src="/js/wangEditor.js"></script>
 <script>
@@ -54,13 +67,14 @@
             let title = $('#first_title').val();
             let classify = $('#first_class').val();
             let url = '/admin/notes/saveNotes'
-            $.post(url,{body:body,title:title,classify:classify},function (result) {
+            let creationTime = new Date();
+            let status = $("input[type='checkbox']:checked").val() === 'on' ? true : false;
+            $.post(url,{body:body,title:title,classify:classify, creationTime: creationTime, status: status},function (result) {
                 if(result.err === 0){
                     M.toast({html: '保存成功'})
                 }
             })
             $(this).text('保存').removeClass('disabled')
-
         })
 
 </script>

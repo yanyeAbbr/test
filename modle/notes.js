@@ -8,7 +8,12 @@ const mongoose = require('mongoose');
             type: String,
             default : new Date()
         },
-        contentId: String  // 关联id
+        contentId: String,  // 关联id
+        creationTime: Date,  // 时间
+        status: {
+            type: Boolean,
+            default : false
+        }
     };
     let Notes = mongoose.model('Notes',schema);
 

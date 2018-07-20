@@ -31,6 +31,8 @@ exports.index = function (req, res, next) {
     if (req.query.hl && util.isString(req.query.hl) && $CONFIG.support_template_language[req.query.hl]) {
         ll_key = $CONFIG.support_template_language[req.query.hl];
         req.session.lang =  ll_key;
+        res.locals.$_$.ll_key = ll_key;
+         $CONFIG.ll_key = ll_key;
         console.log(ll_key,'>>>>>>>>>>>');
     }
     //查找对应模板语言
