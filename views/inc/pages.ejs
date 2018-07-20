@@ -1,0 +1,39 @@
+
+<% if(list){ %>
+<%var pre_showSize = 1 %>
+<%var nex_showSize = 8 %>
+    <ul class="pagination">
+        <li class="pre-mouth<%= list.pageIndex === '1' ? ' disabled': ''%>"><a href="<%= parseInt(list.pageIndex) === 1 ? 'javascript:void(0)':'/news/more?page='+ Number(list.pageIndex -1) +'& limit='+list.pageSize+''%>"><i class="material-icons">chevron_left</i></a></li>
+        <% for(var i = pre_showSize; i < Math.ceil(list.pageCount / list.pageSize)+1; i++ ){ %>
+
+
+        <!--前面符合条件的放入 -->
+        <% if( list.pageIndex >= 6 && i < list.pageIndex -3 ){%>
+             <% if(list.pageIndex -4 === i){%>
+        <!--前面符合条件打印。。。-->
+
+                 <li class="waves-effect"><a>...</a></li>
+            <%}%>
+        <%}else{%>
+             <li class="waves-effect <%= i === parseInt(list.pageIndex) ? 'active' : ''%>"><a href="/news/more?page=<%= i%>&limit=<%= list.pageSize%>"><%= i%></a></li>
+        <%}%>
+
+
+
+
+        <% if(nex_showSize - list.pageIndex < 3 ){ %>
+             <% nex_showSize = list.pageIndex-0 + 3 %>
+        <%}%>
+
+
+        <!--后面不符合条件的跳出循环 打印...-->
+        <% if(i >= nex_showSize){ %>
+        <li class="waves-effect"><a>...</a></li>
+         <% break%>
+        <%}%>
+
+
+        <%}%>
+        <li class="waves-effect next-mouth<%= Number(list.pageIndex) ===  Math.ceil(list.pageCount / list.pageSize) ? ' disabled': ''%>"><a href="<%= Number(list.pageIndex) ===  Math.ceil(list.pageCount / list.pageSize) ? 'javascript:void(0)':'/news/more?page='+ Number(list.pageIndex -1 + 2) +'& limit='+list.pageSize+''%>"><i class="material-icons">chevron_right</i></a></li>
+    </ul>
+<% } %>

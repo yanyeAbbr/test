@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <%- include inc/materialize.ejs%>
+    <title>Document</title>
+    <style>
+        /* 新闻 样式*/
+        .content_list {
+            clear: both;
+        }
+        .content_list li {
+            overflow: hidden;
+            line-height: 30px;
+        }
+        .dd_lm {
+            color: #4a5265;
+            width: 70px;
+            float: left;
+            font-size: 15px;
+            _font_size: 14px;
+            _font-family: "宋体";
+        }
+        .dd_bt {
+            color: #333;
+            width: 480px;
+            float: left;
+            text-align: left;
+            font-size: 15px;
+            _font_size: 14px;
+            _font-family: "宋体";
+        }
+        .dd_bt a:visited {
+            color: #919191;
+            text-decoration: none;
+        }
+        .dd_bt a:link {
+            color: #333;
+            text-decoration: none;
+        }
+        .dd_time {
+            color: #919191;
+            float: right;
+            width: 120px;
+            font-size: 13px;
+            _font-size: 12px;
+            _font-family: "宋体";
+        }
+        /*-----底边---*/
+        .y-item-wrap{
+            margin-bottom: 100px;
+        }
+    </style>
+</head>
+<body>
+<% include inc/header_nav.ejs%>
+<div class="container">
+    <div class="row">
+        <div class="col s12  y-item-wrap">
+            <% if(result && result.news !== undefined){%>
+            <div class="col s12">
+                <ul class="content_list">
+                    <% result.news.forEach(function (ele, index) {%>
+                    <li>
+                        <div class="dd_lm">[<%= ele.key%>]</div>
+                        <div class="dd_bt"><a href="<%= ele.url%>"><%= ele.title%></a>
+                        </div>
+                        <div class="dd_time"><%= ele.info.split(' ')[0].split('：')[1] ? ele.info.split(' ')[0].split('：')[1] : ele.info.split(' ')[0]%></div>
+                    </li>
+                    <%})%>
+                </ul>
+            </div>
+            <%}%>
+            <% var list = {pageCount:result.count, pageSize: 10, pageIndex: result.pageIndex}%>
+            <%- include inc/pages.ejs%>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+</body>
+</html>

@@ -8,5 +8,6 @@ module.exports = function (app) {
     require('./admin_news')(app);  // 管理员登录 主页
     require('./admin_notes')(app);  // 管理员登录 笔记页
     require('./notes')(app);  // 笔记页
+    require('./news')(app);  // 新闻
 
 };
