@@ -3,7 +3,8 @@
 <%var pre_showSize = 1 %>
 <%var nex_showSize = 8 %>
     <ul class="pagination">
-        <li class="pre-mouth<%= list.pageIndex === '1' ? ' disabled': ''%>"><a href="<%= parseInt(list.pageIndex) === 1 ? 'javascript:void(0)':'/news/more?page='+ Number(list.pageIndex -1) +'& limit='+list.pageSize+''%>"><i class="material-icons">chevron_left</i></a></li>
+        <li class="waves-effect" style="margin-right: -25px"><a href="/news/more?page=1&limit=<%= list.pageSize%>">首页</a></li>
+        <li class="pre-mouth<%= list.pageIndex === '1' ? ' disabled': ''%>"><a href="<%= parseInt(list.pageIndex) === 1 ? 'javascript:void(0)':'/news/more?page='+ Number(list.pageIndex -1) +'&limit='+list.pageSize+''%>"><i class="material-icons">chevron_left</i></a></li>
         <% for(var i = pre_showSize; i < Math.ceil(list.pageCount / list.pageSize)+1; i++ ){ %>
 
 
@@ -11,7 +12,6 @@
         <% if( list.pageIndex >= 6 && i < list.pageIndex -3 ){%>
              <% if(list.pageIndex -4 === i){%>
         <!--前面符合条件打印。。。-->
-
                  <li class="waves-effect"><a>...</a></li>
             <%}%>
         <%}else{%>
@@ -34,6 +34,7 @@
 
 
         <%}%>
-        <li class="waves-effect next-mouth<%= Number(list.pageIndex) ===  Math.ceil(list.pageCount / list.pageSize) ? ' disabled': ''%>"><a href="<%= Number(list.pageIndex) ===  Math.ceil(list.pageCount / list.pageSize) ? 'javascript:void(0)':'/news/more?page='+ Number(list.pageIndex -1 + 2) +'& limit='+list.pageSize+''%>"><i class="material-icons">chevron_right</i></a></li>
+        <li class="waves-effect next-mouth<%= Number(list.pageIndex) ===  Math.ceil(list.pageCount / list.pageSize) ? ' disabled': ''%>"><a href="<%= Number(list.pageIndex) ===  Math.ceil(list.pageCount / list.pageSize) ? 'javascript:void(0)':'/news/more?page='+ Number(list.pageIndex -1 + 2) +'&limit='+list.pageSize+''%>"><i class="material-icons">chevron_right</i></a></li>
+        <li class="waves-effect" style="margin-left: -25px;"><a href="/news/more?page=<%=  Math.ceil(list.pageCount / list.pageSize)%>&limit=<%= list.pageSize%>">尾页</a></li>
     </ul>
 <% } %>

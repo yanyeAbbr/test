@@ -25,11 +25,12 @@ exports.api = function (req, res) {
     }
 };
 
-exports.details = function (req, res) {
+exports.details = function (req, res, next) {
     let id = req.params.id;
     notes.find({_id:id},function (err, result) {
         if(err){
-            console.error(err, 'notes api throw error')
+            console.error(err, 'notes api throw error');
+            next();
         }else{
            res.render('notes_ditails',result[0])
         }

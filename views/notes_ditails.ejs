@@ -9,7 +9,11 @@
         }
         .post .title {
             font-size: 1.5rem;
-            padding: 10px 0;
+           line-height: 25px;
+        }
+        .post .notes-info {
+            font-size: .8rem;
+            padding-top: 30px;
         }
         .post i.left{
             margin-right: 3px;
@@ -19,7 +23,7 @@
             height: auto;
         }
         .content-body-wrap{
-            padding: 20px 30px;
+            padding: 75px 30px 20px;
         }
     </style>
 </head>
@@ -33,7 +37,7 @@
                 <div class="post">
                     <div class="header">
                         <div class="title"><%= title%></div>
-                        <div class="grey-text" style="font-size: .8rem">
+                        <div class="grey-text notes-info">
                             <i class="material-icons tiny left">mode_edit</i> <%= status ? '已完成': '编辑中'%> <br>
                             <i class="material-icons tiny left">star</i><%= classify%><br>
                             <i class="material-icons tiny left">query_builder</i><%= $$.timeAgo(UpdateDate)%>  更新 · <%= creationTime.toLocaleDateString()%> 创建
