@@ -19,9 +19,12 @@
 
 
 #### ps
-    echo "# ass" >> README.md
-    git init
-    git add README.md
-    git commit -m "first commit"
-    git remote add origin https://github.com/653579487/ass.git
-    git push -u origin master
+```
+echo "# ass" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/653579487/ass.git
+git push -u origin master
+
+```
